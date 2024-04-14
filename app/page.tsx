@@ -1,13 +1,10 @@
 "use client";
 
-import Image from "next/image";
-
 import questionsList from "../app/questions_list";
 import QuestionCard from "./question_card";
 import { useState } from "react";
 import { CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
 export default function Home() {
 
   const [questionIndex, setQuestionIndex] = useState(0);

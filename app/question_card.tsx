@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { SliderComponent } from "./slider_component";
 
 interface Question{
     question : string;
@@ -20,6 +21,13 @@ interface Question{
 
 export default function QuestionCard(props : Question) {
 
+   const [sliderValue, setSliderValue] = useState<number>(0);
+
+  const handleSliderChange = (newValue: number | number[]) => {
+    setSliderValue(newValue as number);
+  };
+
+  console.log("sliderValue  ----   "+sliderValue);
 
   return (
     <Card style={({background:"white", border:"white" })} className="w-full lg:w-2/4">
@@ -29,7 +37,9 @@ export default function QuestionCard(props : Question) {
       </CardHeader>
       <CardContent className="space-y-4 " >
         <div className="space-y-2">
-          <Input id={props.optionType} placeholder="Type here..." required type={props.optionType} style={({color:"black", background:'white'})}/>
+        {props.optionType == "slider" ? <SliderComponent sliderValue={sliderValue} onValueCommit={handleSliderChange}/> : 
+        <Input id={props.optionType} placeholder="Type here..." required type={props.optionType} style={({color:"black", background:'white'})}/>
+        }
         </div>
         
       </CardContent>

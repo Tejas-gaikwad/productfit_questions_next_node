@@ -34,7 +34,7 @@ const  questionsList : QuestionModel[] = [
     {
         questionText:"Expense Tracking Difficulty",
         subQuestionText:"On a scale of 1 to 5, how challenging do you find it to keep track of your expenses? (1 being not challenging at all, 5 being extremely challenging)",
-        questionOptionsType : "boolean",
+        questionOptionsType : "slider",
         questionOption:[]
     },
     {
