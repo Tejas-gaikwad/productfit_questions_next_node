@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 
-const MCQComponent = () => {
+
+export default function MCQComponent() {
 
     const choiceList = [
         "Choice 1",
@@ -12,7 +13,7 @@ const MCQComponent = () => {
 
     const [selectedOption, setSelectOption] = useState<number | null>(null);
 
-    function handleOption(index: number) {
+    const handleOption = (index: number) => {
         // if(selectedOption !== index ){
             setSelectOption(index);
             console.log("selectedOption ---   "+selectedOption);
@@ -32,4 +33,3 @@ const MCQComponent = () => {
     );
 }
 
-export default MCQComponent;
