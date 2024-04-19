@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { SliderComponent } from "./slider_component";
 import BooleanComponent from "./boolean_component";
+import MCQComponent from "./mcq_component";
 
 interface Question{
     question : string;
@@ -40,7 +41,8 @@ export default function QuestionCard(props : Question) {
         <div className="space-y-2">
         {props.optionType == "slider" ? <SliderComponent sliderValue={sliderValue} onValueCommit={handleSliderChange}/> : 
           props.optionType == "boolean" ? <BooleanComponent/> : 
-          <Input id={props.optionType} placeholder="Type here..." required type={props.optionType} style={({color:"black", background:'white'})}/>
+          props.optionType == "mcq" ? <MCQComponent/> :
+           <Input id={props.optionType} placeholder="Type here..." required type={props.optionType} style={({color:"black", background:'white'})}/>
         }
         </div>
         
